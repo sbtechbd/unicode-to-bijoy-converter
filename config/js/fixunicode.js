@@ -8,3 +8,6 @@ function FixUnicode() {
             });
             document.getElementById("CONVERTEDT").value = fixedText;
         }
+
+
+        
