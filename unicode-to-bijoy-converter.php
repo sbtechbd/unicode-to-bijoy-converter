@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Unicode to Bijoy Converter
  * Description: A plugin to convert Unicode to Bijoy and Bijoy to Unicode for Bangla text with voice typing support, including fixing broken text.
@@ -12,8 +13,15 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+// Include the update.php file for GitHub updates
+include_once plugin_dir_path(__FILE__) . 'update.php';
+
+// Initialize the GitHubUpdater class
+new GitHubUpdater(__FILE__, 'sbtechbd/unicode-to-bijoy-converter');
+
 // Hook to add custom styles and scripts
-function unicode_to_bijoy_converter_enqueue_assets() {
+function unicode_to_bijoy_converter_enqueue_assets()
+{
     $plugin_url = plugin_dir_url(__FILE__);
 
     // Enqueue Tailwind CSS and custom styles
@@ -42,16 +50,18 @@ function unicode_to_bijoy_converter_enqueue_assets() {
 add_action('wp_enqueue_scripts', 'unicode_to_bijoy_converter_enqueue_assets');
 
 // Enqueue Sutonny MJ font
-function enqueue_sutonny_mj_font() {
+function enqueue_sutonny_mj_font()
+{
     $font_css = plugin_dir_url(__FILE__) . 'config/fonts/sutonny-mj.css';
     wp_enqueue_style('sutonny-mj', $font_css, array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'enqueue_sutonny_mj_font');
 
 // Shortcode to display the converter form
-function unicode_to_bijoy_converter_shortcode() {
+function unicode_to_bijoy_converter_shortcode()
+{
     ob_start();
-    ?>
+?>
     <div class="container mx-auto bg-blue-100 p-4 rounded-md">
         <h1 class="text-center text-3xl font-semibold text-blue-600">Unicode to Bijoy Converter</h1>
         <p class="text-center text-lg text-gray-700 mb-6">
@@ -59,21 +69,21 @@ function unicode_to_bijoy_converter_shortcode() {
         </p>
 
         <div class="text-center my-4">
-<div class="text-center my-4">
-    <div class="flex justify-center mt-4">
-        <button id="voice-typing-btn" onclick="startDictation()" type="button" class="relative flex items-center gap-2 px-4 py-2 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-            <span class="relative inline-flex w-8 h-8">
-                <span class="absolute inline-flex w-full h-full rounded-full bg-blue-400 opacity-75 animate-ping"></span>
-                <span class="relative flex items-center justify-center w-8 h-8 text-white bg-blue-600 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path>
-                    </svg>
-                </span>
-            </span>
-            <span class="text-sm font-medium">Click Here To Voice Typing</span>
-        </button>
-    </div>
-</div>
+            <div class="text-center my-4">
+                <div class="flex justify-center mt-4">
+                    <button id="voice-typing-btn" onclick="startDictation()" type="button" class="relative flex items-center gap-2 px-4 py-2 text-white bg-blue-500 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+                        <span class="relative inline-flex w-8 h-8">
+                            <span class="absolute inline-flex w-full h-full rounded-full bg-blue-400 opacity-75 animate-ping"></span>
+                            <span class="relative flex items-center justify-center w-8 h-8 text-white bg-blue-600 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path>
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="text-sm font-medium">Click Here To Voice Typing</span>
+                    </button>
+                </div>
+            </div>
 
         </div>
 
@@ -94,7 +104,7 @@ function unicode_to_bijoy_converter_shortcode() {
         </div>
     </div>
 
-    <?php
+<?php
     return ob_get_clean();
 }
 
