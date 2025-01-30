@@ -1,17 +1,21 @@
 /*
  * Copyright (c) 2025. All rights reserved by Subrata Debnath. Fork me on https://github.com/subrata6630
  */
-    @font-face {
-      font-family: "SutonnyMJ";
-      src: url("fonts/SutonnyMJ.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
+
+/*
+
+ @font-face {
+  font-family: "SutonnyMJ";
+  src: url("fonts/SutonnyMJ.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 
 body {
 
-   font-family: "SutonnyMJ", sans-serif;
+font-family: "SutonnyMJ", sans-serif;
 }
 
 
@@ -22,5 +26,7 @@ font-family: "SutonnyMJ", sans-serif;
 }
 
 .unicode-textarea {
-      font-family: "SolaimanLipi";
-    }
+  font-family: "SolaimanLipi";
+}
+
+ */
