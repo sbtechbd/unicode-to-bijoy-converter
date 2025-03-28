@@ -5,19 +5,17 @@
  * Description: A plugin to convert Unicode to Bijoy and Bijoy to Unicode for Bangla text with voice typing support, including fixing broken text.
  * Version: 1.3
  * Author: Subrata Debnath
- * Author URI: https://www.linkedin.com/in/subrata6630/
+ * Plugin URI: https://wordpress.org/plugins/unicode-to-bijoy-converter
+ * Author URI: https://profiles.wordpress.org/subrata-deb-nath
  * License: GPL2
+ * Text Domain: unicode-to-bijoy-converter
  */
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-// Include the update.php file for GitHub updates
-include_once plugin_dir_path(__FILE__) . 'update.php';
 
-// Initialize the GitHubUpdater class
-new GitHubUpdater(__FILE__, 'sbtechbd/unicode-to-bijoy-converter');
 
 // Hook to add custom styles and scripts
 function unicode_to_bijoy_converter_enqueue_assets()
